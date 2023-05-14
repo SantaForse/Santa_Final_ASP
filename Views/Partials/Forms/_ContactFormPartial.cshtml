@@ -2,16 +2,16 @@
     <div class="container">
         <div class="title">Write something</div>
 
-        <form novalidate>
+        <form id="contact-form" method="post" novalidate>
             <div class="name form-group">
                 <label for="name">Your Name*</label>
-                <input id="name" type="text" class="invalid" required>
-                <span class="error">Your name is required</span>
+                <input id="contact-name" type="text" required>
+                <span class="contact-error"></span>
             </div>
             <div class="email form-group">
                 <label for="email">Your Email*</label>
-                <input id="email" type="text" class="invalid">
-                <span class="error">Your email is required</span>
+                <input id="contact-email" type="text">
+                <span class="contact-error"></span>
             </div>
             <div class="phoneNumber form-group">
                 <label for="phone">Phone Number (optional)</label>
@@ -23,8 +23,8 @@
             </div>
             <div class="message form-group">
                 <label for="message">Message*</label>
-                <textarea id="message" class="invalid"></textarea>
-                <span class="error">Message is required</span>
+                <textarea id="contact-message"></textarea>
+                <span class="contact-error"></span>
             </div>
             <div class="terms form-checkbox-group">
                 <label class="custom-checkbox">
@@ -33,7 +33,7 @@
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <button class="btn-theme">Submit</button>
+            <button id="contactFormButton" class="btn-theme">Submit</button>
         </form>
     </div>
 </section>

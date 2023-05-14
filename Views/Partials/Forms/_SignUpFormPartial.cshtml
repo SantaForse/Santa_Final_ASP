@@ -9,78 +9,78 @@
     <div class="container">
         <div class="title">Please Register Your new Account</div>
         <div class="underline"></div>
-        <form novalidate>
+        <form id="signup-form" method="post" novalidate>
             <div class="form-grid">
                 <div class="firstName form-group">
                     <div class="firstName-text">
-                        <label for="firstName">First Name*</label>
+                        <label for="FirstName">First Name*</label>
                     </div>
-                    <input id="firstName" type="text" class="invalid">
-                    <span class="error">A first name is required</span>
+                    <input id="signup-firstName" type="text">
+                    <span class="signup-error"></span>
                 </div>
                 <div class="lastName form-group">
                     <div class="lastName-text">
-                        <label for="lastName">Last Name*</label>
+                        <label for="LastName">Last Name*</label>
                     </div>
-                    <input id="lastName" type="text" class="invalid">
-                    <span class="error">A last name is required</span>
+                    <input id="signup-lastName" type="text">
+                    <span class="signup-error"></span>
                 </div>
                 <div class="streetName form-group">
                     <div class="streetName-text">
-                        <label for="streetName">Street Name</label>
+                        <label for="StreetName">Street Name</label>
                     </div>
-                    <input id="streetName" type="text">
+                    <input  id="signup-streetName" type="text">
                 </div>
                 <div class="postalCode form-group">
                     <div class="postalCode-text">
-                        <label for="postalCode">Postal Code</label>
+                        <label for="PostalCode">Postal Code</label>
                     </div>
-                    <input id="postalCode" type="text">
+                    <input id="signup-postalCode" type="text">
                 </div>
                 <div class="city form-group">
                     <div class="city-text">
-                        <label for="city">City Name</label>
+                        <label for="City">City Name</label>
                     </div>
-                    <input id="city" type="text">
+                    <input id="singup-city" type="text">
                 </div>
                 <div class="phoneNumber form-group">
                     <div class="phoneNumber-text">
-                        <label for="phoneNumber">Phone Number</label>
+                        <label for="PhoneNumber">Phone Number</label>
                     </div>
-                    <input id="phoneNumber" type="text">
+                    <input id="signup-phoneNumber" type="text">
                 </div>
                 <div class="companyName form-group">
                     <div class="companyName-text">
-                        <label for="companyName">Company Name</label>
+                        <label for="CompanyName">Company Name</label>
                     </div>
-                    <input id="companyName" type="text">
+                    <input id="signup-companyName" type="text">
                 </div>
                 <div class="email form-group">
                     <div class="email-text">
-                        <label for="email">Email*</label>
+                        <label for="Email">Email*</label>
                     </div>
-                    <input id="email" type="text" class="invalid">
-                    <span class="error">An email address is required</span>
+                    <input id="signup-email" type="text">
+                    <span class="signup-error"></span>
                 </div>
                 <div class="password form-group">
                     <div class="password-text">
-                        <label for="password">Password*</label>
+                        <label for="Password">Password*</label>
                     </div>
-                    <input id="password" type="password" class="invalid">
-                    <span class="error">A password is required</span>
+                    <input id="signup-password" type="password">
+                    <span class="signup-error"></span>
                 </div>
                 <div class="confirmPassword form-group">
                     <div class="password-text">
-                        <label for="confirmPassword">Confirm Password*</label>
+                        <label for="ConfirmPassword">Confirm Password*</label>
                     </div>
-                    <input id="confirmPassword" type="password" class="invalid">
-                    <span class="error">You need to confirm your password.</span>
+                    <input id="signup-confirmPassword" type="password">
+                    <span class="signup-error"></span>
                 </div>
                 <div class="profileImage form-group">
                     <div class="profileImage-text">
-                        <label for="profileImage">Paste a URL to a profileimage here.</label>
+                        <label for="ProfileImageUrl">Paste a URL to a profileimage here.</label>
                     </div>
-                    <input id="profileImage" type="text">
+                    <input id="signup-profileImage" type="text">
                 </div>
 
             </div>
