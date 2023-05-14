@@ -2,11 +2,10 @@
 
 namespace Santa_Final_ASP.Controllers;
 
-public class HomeController : Controller
+public class AdminController : Controller
 {
     public IActionResult Index()
     {
-
         return View();
     }
 }

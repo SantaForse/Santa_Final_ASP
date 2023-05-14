@@ -10,9 +10,4 @@ public class ProductController : Controller
         return View();
     }
 
-    public IActionResult Search()
-    {
-        ViewData["Title"] = "Search for products";
-        return View();
-    }
 }

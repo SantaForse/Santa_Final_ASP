@@ -6,7 +6,6 @@ public class ContactsController : Controller
 {
     public IActionResult Index()
     {
-        ViewData["Title"] = "Contact us";
 
         return View();
     }

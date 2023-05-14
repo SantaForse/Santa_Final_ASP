@@ -1,6 +1,21 @@
-﻿<partial name="/Views/Partials/_Header.cshtml" />
-<partial name="/Views/Partials/_Breadcrumb.cshtml" />
-<partial name="/Views/Partials/Forms/_ContactForm.cshtml" />
-<partial name="/Views/Partials/_GoogleMaps.cshtml" />
-<partial name="/Views/Partials/_Footer.cshtml" />
+﻿
+@*Contact Index*@
+
+@{
+    ViewData["Title"] = "Contact us";
+
+
+    var breadcrumb = new Santa_Final_ASP.ViewModels.BreadcrumbViewModel()
+            {
+                Title = "Contact",
+                UnderTitle1 = "Home. ",
+                UnderTitle2 = "Contact"
+            };
+}
+
+<partial name="/Views/Partials/_HeaderPartial.cshtml" />
+<partial name="/Views/Partials/_BreadcrumbPartial.cshtml" model="@breadcrumb" />
+<partial name="/Views/Partials/Forms/_ContactFormPartial.cshtml" />
+<partial name="/Views/Partials/_GoogleMapsPartial.cshtml" />
+<partial name="/Views/Partials/_FooterPartial.cshtml" />
 

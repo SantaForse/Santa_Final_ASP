@@ -7,7 +7,6 @@ public class SignupController : Controller
     public IActionResult Index()
     {
 
-        ViewData["Title"] = "Signup";
         return View();
     }
 }

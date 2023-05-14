@@ -1,8 +1,26 @@
-﻿<partial name="/Views/Partials/_Header.cshtml" />
-<partial name="/Views/Partials/_BreadcrumbProduct.cshtml" />
-<partial name="/Views/Partials/_ProductDetails.cshtml" />
-<partial name="/Views/Partials/_ProductButtons.cshtml" />
-<partial name="/Views/Partials/_ProductDescription.cshtml" />
-<partial name="/Views/Partials/_RelatedProducts.cshtml" />
-<partial name="/Views/Partials/_ProductBottomImg.cshtml" />
-<partial name="/Views/Partials/_Footer.cshtml" />
+﻿
+@*Product Index*@
+
+@{
+
+    ViewData["Title"] = "Product";
+
+    var breadcrumb = new Santa_Final_ASP.ViewModels.BreadcrumbViewModel()
+            {
+                Title = "SHOP",
+                UnderTitle1 = "HOME.",
+                UnderTitle2 = "PRODUCT DETAILS"
+
+            };
+
+}
+
+
+<partial name="/Views/Partials/_HeaderPartial.cshtml" />
+<partial name="/Views/Partials/_BreadcrumbPartial.cshtml" model="@breadcrumb" />
+<partial name="/Views/Partials/_ProductDetailsPartial.cshtml" />
+<partial name="/Views/Partials/_ProductButtonsPartial.cshtml" />
+<partial name="/Views/Partials/_ProductDescriptionPartial.cshtml" />
+<partial name="/Views/Partials/_RelatedProductsPartial.cshtml" />
+<partial name="/Views/Partials/_ProductBottomImgPartial.cshtml" />
+<partial name="/Views/Partials/_FooterPartial.cshtml" />
