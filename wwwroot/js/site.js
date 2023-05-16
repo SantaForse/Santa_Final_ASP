@@ -148,10 +148,17 @@ const signupPassword = document.getElementById('signup-password');
 const signupConfirmPassword = document.getElementById('signup-confirmPassword');
 
 
-signupForm.addEventListener('submit', e => {
+window.onload = function () {
+    signupForm.addEventListener('submit', e => {
+        e.preventDefault();
+        validateSignupInputs();
+    });
+}
+
+/*signupForm.addEventListener('submit', e => {
     e.preventDefault();
     validateSignupInputs();
-});
+});*/
 
 const setSignupError = (element, message) => {
     const inputControl = element.parentElement;
