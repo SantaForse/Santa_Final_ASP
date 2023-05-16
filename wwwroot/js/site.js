@@ -60,11 +60,19 @@ const contactName = document.getElementById('contact-name');
 const contactEmail = document.getElementById('contact-email');
 const contactMessage = document.getElementById('contact-message');
 
-contactForm.addEventListener('submit', e => {
+/*contactForm.addEventListener('submit', e => {
     e.preventDefault();
     validateContactInputs();
 
-});
+});*/
+
+window.onload = function () {
+    contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+        validateContactInputs();
+
+    });
+}
 
 const setContactError = (element, message) => {
     const inputControl = element.parentElement;
@@ -142,10 +150,7 @@ const signupConfirmPassword = document.getElementById('signup-confirmPassword');
 
 signupForm.addEventListener('submit', e => {
     e.preventDefault();
-
-
     validateSignupInputs();
-
 });
 
 const setSignupError = (element, message) => {
