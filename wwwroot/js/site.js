@@ -155,6 +155,7 @@ window.onload = function () {
     });
 }
 
+
 /*signupForm.addEventListener('submit', e => {
     e.preventDefault();
     validateSignupInputs();
