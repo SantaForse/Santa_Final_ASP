@@ -1,9 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Santa_Final_ASP.Models.Contexts;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
+builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer());
 
 
 var app = builder.Build();
