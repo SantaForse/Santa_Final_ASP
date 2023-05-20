@@ -6,7 +6,6 @@ public class ProductController : Controller
 {
     public IActionResult Index()
     {
-        ViewData["Title"] = "Product";
         return View();
     }
 
