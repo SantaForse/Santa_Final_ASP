@@ -19,9 +19,8 @@ public class LogoutController : Controller
         if (_signInManager.IsSignedIn(User))
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
         }
 
-        return RedirectToAction("Index", "Login");
+        return RedirectToAction("Index", "Home");
     }
 }

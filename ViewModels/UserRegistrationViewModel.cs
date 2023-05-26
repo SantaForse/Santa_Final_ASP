@@ -1,7 +1,6 @@
 ﻿using Santa_Final_ASP.Models.Entities;
 using Santa_Final_ASP.Models.Identity;
 using System.ComponentModel.DataAnnotations;
-using System.Reflection.Metadata.Ecma335;
 
 namespace Santa_Final_ASP.ViewModels;
 
@@ -28,7 +27,7 @@ public class UserRegistrationViewModel
     [DataType(DataType.Password)]
     public string ConfirmPassword { get; set; } = null!;
 
-    public string? StreetName { get; set; }
+    public string StreetName { get; set; } = null!;
 
     public string? PostalCode { get; set; }
 
@@ -38,16 +37,22 @@ public class UserRegistrationViewModel
 
     public string? ProfileImageUrl { get; set; }
 
+    [Required(ErrorMessage = "You must agree to the terms and conditions.")]
+    public bool TermsAndAgreement { get; set; } = false;
+
 
     public static implicit operator AppUser(UserRegistrationViewModel viewModel)
     {
         return new AppUser
         {
             UserName = viewModel.Email,
+            Email = viewModel.Email,
             FirstName = viewModel.FirstName,
             LastName = viewModel.LastName,
-            Email = viewModel.Email,
             PhoneNumber = viewModel.PhoneNumber,
+            CompanyName = viewModel.CompanyName,
+            ImageUrl = viewModel.ProfileImageUrl,
+
         };
     }
 
@@ -58,6 +63,7 @@ public class UserRegistrationViewModel
             StreetName = viewModel.StreetName,
             PostalCode = viewModel.PostalCode,
             City = viewModel.City,
+
         };
     }
 }

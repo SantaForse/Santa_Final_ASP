@@ -1,0 +1,25 @@
+﻿@*Account View Index (PROFILE PAGE)*@
+
+@using Santa_Final_ASP.Services.Repo;
+
+
+@model UsersViewModel
+
+
+@{
+    ViewData["Title"] = $"{User.Identity?.Name}";
+}
+
+
+<div>
+    @ViewData["Title"]
+    <div>
+        @foreach (var user in Model.Users)
+        {
+            <div>
+                @user.FirstName
+                @user.LastName
+            </div>
+        }
+    </div>
+</div>

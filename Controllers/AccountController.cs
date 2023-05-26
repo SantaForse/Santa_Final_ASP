@@ -1,26 +1,25 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Santa_Final_ASP.ViewModels;
 using Santa_Final_ASP.Services.Repo;
-using Santa_Final_ASP.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Santa_Final_ASP.Controllers;
 
-public class AdminController : Controller
+public class AccountController : Controller
 {
     private readonly UserRepository _userRepository;
 
-    public AdminController(UserRepository userRepository)
+    public AccountController(UserRepository userRepository)
     {
         _userRepository = userRepository;
     }
 
-
-    [Authorize(Roles = "admin")]
     public async Task<IActionResult> Index()
     {
         var viewModel = new UsersViewModel
         {
-            Users = await _userRepository.GetAllAsync()
+            Users = await _userRepository.GetAllAsync(x => x.Email == User.Identity!.Name)
+
         };
         return View(viewModel);
 

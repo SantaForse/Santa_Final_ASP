@@ -1,4 +1,5 @@
 ﻿@using Santa_Final_ASP.Services;
+@using Santa_Final_ASP.Services.Repo;
 @*Admin Index View*@
 
 
@@ -8,6 +9,35 @@
 
 <partial name="/Views/Partials/_HeaderPartial.cshtml" />
 
-@{
-    var users = await UserService.GetAllAsync();
-}
+<div class="p-5">
+    <div class="pt-5">
+        <h1>LIST OF USERS </h1>
+        @foreach (var user in Model.Users)
+        {
+            <div class="pt-5">
+
+                <p>
+                    Name:
+                    @user.FirstName @user.LastName
+                </p>
+
+                <p>
+                    Username (Email):
+                    @user.UserName
+                </p>
+
+                @{
+                    var roles = await userManager.GetRolesAsync(user);
+
+                    @foreach (var role in roles)
+                    {
+                        <p>
+                            Role:
+                            @role
+                        </p>
+                    }
+                }
+            </div>
+        }
+    </div>
+</div>

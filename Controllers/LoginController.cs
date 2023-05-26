@@ -1,44 +1,41 @@
-﻿using Santa_Final_ASP.Models.Identity;
+﻿using Santa_Final_ASP.Services;
 using Santa_Final_ASP.ViewModels;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Santa_Final_ASP.Controllers;
 
 public class LoginController : Controller
 {
-    
-        private readonly SignInManager<AppUser> _signInManager;
 
-        public LoginController(SignInManager<AppUser> signInManager)
+    private readonly Services.AuthenticationService _auth;
+
+    public LoginController(Services.AuthenticationService auth)
+    {
+        _auth = auth;
+    }
+
+    [HttpGet]
+    public IActionResult Index(string ReturnUrl = null!)
+    {
+        var viewmodel = new UserLoginViewModel();
+        if (ReturnUrl != null)
+            viewmodel.ReturnUrl = ReturnUrl;
+
+        return View(viewmodel);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Index(UserLoginViewModel viewModel)
+    {
+        if (ModelState.IsValid)
         {
-            _signInManager = signInManager;
+            if (await _auth.LogInAsync(viewModel))
+                return LocalRedirect(viewModel.ReturnUrl);
+
+            ModelState.AddModelError("", "Incorrect Email och Password");
         }
+        return View(viewModel);
 
-
-        [HttpGet]
-        public IActionResult Index()
-        {
-            if (_signInManager.IsSignedIn(User))
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            return View();
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> Index(UserLoginViewModel viewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await _signInManager.PasswordSignInAsync(viewModel.Email, viewModel.Password, viewModel.RememberMe, false);
-                if (result.Succeeded)
-                    return RedirectToAction("Index", "Home");
-
-                ModelState.AddModelError("", "Incorrect email address or password");
-            }
-
-            return View(viewModel);
     }
 }

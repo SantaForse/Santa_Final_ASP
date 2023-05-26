@@ -15,5 +15,6 @@ namespace Santa_Final_ASP.Models.Contexts
         public DbSet<AddressEntity> AspNetAddresses { get; set; }
 
         public DbSet<UserAddressEntity> AspNetUsersAddresses { get; set; }
+
     }
 }
