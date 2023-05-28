@@ -11,8 +11,8 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("merketo")));
-builder.Services.AddDbContext<MessageContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("merketo")));
-
+builder.Services.AddDbContext<MessageContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("merketoContact")));
+builder.Services.AddDbContext<ProductContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("merketoProduct")));
 
 
 builder.Services.AddScoped<SeedService>();
@@ -22,6 +22,7 @@ builder.Services.AddScoped<AddressRepository>();
 builder.Services.AddScoped<UserAddressRepository>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<MessageService>();
+builder.Services.AddScoped<ProductService>();
 
 //AddClaimsPrincipalFactory<CustomClaimsPrincipleFactory>();
 //??????builder.Services.AddScoped<CustomClaimsPrincipleFactory>();

@@ -1,21 +1,22 @@
-﻿@*@if (signInManager.IsSignedIn(User))
+﻿@if (signInManager.IsSignedIn(User))
 {
 
     @if (User.IsInRole("admin"))
     {
         <a class="link" asp-controller="Admin" asp-action="Index">Admin</a>
     }
-    else {}
+    else { }
 
-    <a class="link" asp-controller="Logout" asp-action="Index">@User.Identity?.Name</a>
+    <a class="link" asp-controller="Account" asp-action="Index">@User.Identity?.Name</a>
     <a class="link" asp-controller="Logout" asp-action="Index">LogOut</a>
 
-} else
-{
-*@
-<a class="link" asp-controller="Login" asp-action="Index">Login</a>
-@*
 
 }
-*@
+else
+{
+
+    <a class="link" asp-controller="Login" asp-action="Index">Login</a>
+
+}
+
 

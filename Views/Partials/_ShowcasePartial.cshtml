@@ -1,4 +1,9 @@
-﻿<section class="showcase ">
+﻿@*Showcase Partial - on home*@
+
+@model ProductsViewModel
+
+
+<section class="showcase">
     <div class="container">
         <div class="content">
             <div class="ingress">WELCOME TO BMERKETO SHOP</div>
@@ -6,7 +11,18 @@
             <button class="btn-theme">SHOP NOW</button>
         </div>
         <div class="content-image">
-            <img src="images/placeholders/625x647.svg" alt="">
+            @{
+                if (Model.Products.Any())
+                {
+                    <img src="@Model.Products.Where(x => x.ProductTag == "Featured").First().ImgUrl" alt="@Model.Products.Where(x => x.ProductTag == "Featured").First().Name">
+
+                }
+                else
+                {
+                    
+                }
+            }
+        
         </div>
     </div>
 </section>

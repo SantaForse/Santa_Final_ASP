@@ -1,16 +1,22 @@
-﻿<section class="product_details">
+﻿@*Product-Details Partial - Split up into parts!*@
+
+@model ProductEntity
+
+
+<section class="product_details">
     <div class="container">
 
         <div class="product_details_left">
             <div class="product_details_left_upp">
-                <img src="images/placeholders/501x430.svg" alt="">
+                <img style="height:500px; width:430px;" src="@Model.ImgUrl" alt="@Model.Name">
             </div>
             <div class="product_details_left_down">
                 <div class="container">
-                    <img class="smallimg" src="images/placeholders/120x113.svg" alt="">
-                    <img class="smallimg" src="images/placeholders/120x113.svg" alt="">
-                    <img class="smallimg" src="images/placeholders/120x113.svg" alt="">
-                    <img src="images/placeholders/120x113.svg" alt="">
+                    <img style="height:120px; width:110px;" class="smallimg" src="@Model.ImgUrl" alt="@Model.Name">
+                    <img style="height:120px; width:110px;" class="smallimg" src="@Model.ImgUrl" alt="@Model.Name">
+                    <img style="height:120px; width:110px;" class="smallimg" src="@Model.ImgUrl" alt="@Model.Name">
+                    <img style="height:120px; width:110px;" class="smallimg" src="@Model.ImgUrl" alt="@Model.Name">
+
                 </div>
             </div>
 
@@ -19,8 +25,9 @@
 
 
         <div class="product_details_right">
-            <h1>Young Star Smart Shoe in Fashion</h1>
-            <h2>Lirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h2>
+            <h1>@Model.Name</h1>
+            <h2>@Model.Description Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et cusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata santus est Lorem ipsum dolor sit amet. Lorem ipsum dolor.</h2>
+
 
             <div class="reviews d-flex">
                 <span class="fa fa-star checked"></span>
@@ -30,7 +37,7 @@
                 <span class="fa fa-star"></span>
                 <p>16 reviews</p>
             </div>
-            <h1>30$</h1>
+            <h1>@Model.Price$</h1>
 
             <div class="add-to-cart">
                 <div class="amounts">
@@ -56,3 +63,27 @@
 
     </div>
 </section>
+
+<div class="container productButtons">
+    <button class="rowButton">DESCRIPTION</button>
+    <button class="rowButton">ADDITIONAL INFO</button>
+    <button class="rowButton">REVIEWS (0)</button>
+    <button class="rowButton">SHIPPING & DELIVERY</button>
+</div>
+
+<div class="container prodDescriptionUpp">
+    <h1>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</h1>
+</div>
+
+<div class="container prodDescriptionDown">
+    <div class="textSection">
+        <h2>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et cusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata santus est Lorem ipsum dolor sit amet. Lorem ipsum dolor.</h2>
+        <h2>accusantium laborum pretium hic excepturi harum repellat facilisis convallis potenti, adipiscing lectus aliqua. Asperiores repudiandae ipsam error erat, accusamus, cum taciti unde?</h2>
+        <h2 class="morepadding">Praesentium, pariatur, tempora consequuntur purus sapiente, iaculis vitae consequatur, rhoncus earum eleifend, hendrerit ipsum rhoncus ex error, impedit! Alias laboris sequi curae aptent? Eu sagittis eu, distinctio tortor? Dapibus delectus! Consequuntur luctus. </h2>
+        <h2>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et cusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata santus est Lorem ipsum dolor sit amet. Lorem ipsum dolor.</h2>
+    </div>
+
+    <div class="imgSection">
+        <img style="height:470px; width:360px;" src="@Model.ImgUrl" alt="@Model.Name">
+    </div>
+</div>

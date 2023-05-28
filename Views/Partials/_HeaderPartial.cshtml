@@ -4,7 +4,7 @@
     <div class="container">
         <div class="logo"><img src="images/logo.svg" alt="">bmerketo</div>
 
-        @if (ViewData["Title"]?.ToString() == "Home" || ViewData["Title"]?.ToString() == "Contact us" || ViewData["Title"]?.ToString() == "Product" || ViewData["Title"]?.ToString() == "Admin")
+        @if (ViewData["Title"]?.ToString() == "Home" || ViewData["Title"]?.ToString() == "Contact us" || ViewData["Title"]?.ToString() == "Product" || ViewData["Title"]?.ToString() == "Admin" | ViewData["Title"] == "Admin")
         {
             <nav id="menu" class="menu-links">
                 <a class="link" asp-controller="Home" asp-action="Index">HOME</a>

@@ -1,16 +1,15 @@
 ﻿using Santa_Final_ASP.Services;
 using Santa_Final_ASP.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authentication;
 
 namespace Santa_Final_ASP.Controllers;
 
 public class LoginController : Controller
 {
 
-    private readonly Services.AuthenticationService _auth;
+    private readonly AuthenticationService _auth;
 
-    public LoginController(Services.AuthenticationService auth)
+    public LoginController(AuthenticationService auth)
     {
         _auth = auth;
     }
