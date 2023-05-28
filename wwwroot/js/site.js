@@ -52,19 +52,19 @@ contactForm.addEventListener('submit', (e) => {
     
 })
 */
-
-/* VALIDATION FOR CONTACT FORM*/
+/*
+*//* VALIDATION FOR CONTACT FORM*//*
 
 const contactForm = document.getElementById('contact-form');
 const contactName = document.getElementById('contact-name');
 const contactEmail = document.getElementById('contact-email');
 const contactMessage = document.getElementById('contact-message');
 
-/*contactForm.addEventListener('submit', e => {
+*//*contactForm.addEventListener('submit', e => {
     e.preventDefault();
     validateContactInputs();
 
-});*/
+});*//*
 
 window.onload = function () {
     contactForm.addEventListener('submit', e => {
@@ -134,7 +134,7 @@ const validateContactInputs = () => {
         // submit the form
         contactForm.submit();
     }
-};
+};*/
 
 
 /* VALIDATION FOR SIGNUP  FORM*/
@@ -146,6 +146,7 @@ const signupLastName = document.getElementById('signup-lastName');
 const signupEmail = document.getElementById('signup-email');
 const signupPassword = document.getElementById('signup-password');
 const signupConfirmPassword = document.getElementById('signup-confirmPassword');
+const signupStreetName = document.getElementById('signup-streetName');
 
 
 window.onload = function () {
@@ -155,13 +156,6 @@ window.onload = function () {
     });
 }
 
-
-
-/*signupForm.addEventListener('submit', e => {
-    e.preventDefault();
-    validateSignupInputs();
-blablablablablablablablablabla
-});*/
 
 const setSignupError = (element, message) => {
     const inputControl = element.parentElement;
@@ -197,6 +191,7 @@ const validateSignupInputs = () => {
     const signupEmailValue = signupEmail.value.trim();
     const signupPasswordValue = signupPassword.value.trim();
     const signupConfirmPasswordValue = signupConfirmPassword.value.trim();
+    const signupStreetNameValue = signupStreetName.value.trim();
 
 
     if (signupFirstNameValue === '') {
@@ -228,7 +223,6 @@ const validateSignupInputs = () => {
     }
 
 
-
     if (signupConfirmPasswordValue === '') {
         setSignupError(signupConfirmPassword, 'Please confirm your password');
     } else if (signupConfirmPasswordValue !== signupPasswordValue) {
@@ -237,20 +231,100 @@ const validateSignupInputs = () => {
         setSignupSuccess(signupConfirmPassword);
     }
 
+    if (signupStreetNameValue === '') {
+        setSignupError(signupStreetName, 'A Street name is required');
+    } else {
+        setSignupSuccess(signupStreetName);
+    }
 
-    if (document.querySelectorAll('.success').length === 5) {
-        // submit the form
+
+    if (document.querySelectorAll('.success').length === 6) {
         signupForm.submit();
     }
 };
 
 
 
+
+/*VALIDATION OF CONTACT FORM*/
+
+const contactForm = document.getElementById('contact-form');
+const contactName = document.getElementById('contact-name');
+const contactEmail = document.getElementById('contact-email');
+const contactMessage = document.getElementById('contact-message');
+
+
+var validated = false;
+
+contactForm.addEventListener("submit", (e) => {
+    if (validated == false) {
+        e.preventDefault();
+        validateContactInputs();
+    } else {
+        contactForm.submit();
+    }
+})
+
+const setCommentError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.contact-error');
+    const list = element.classList;
+
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('contact-error');
+    list.add("invalid");
+    inputControl.classList.remove('success')
+}
+
+const setCommentSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.contact-error');
+    const list = element.classList;
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('contact-error');
+    list.remove("invalid");
+};
+
+const validateContactInputs = () => {
+
+    if (contactName.value === '') {
+        setCommentError(contactName, 'A name is required');
+        validated = false;
+    } else {
+        setCommentSuccess(contactName);
+        validated = true;
+    }
+
+    if (contactEmail.value === '') {
+        setCommentError(contactEmail, 'An Email is required');
+        validated = false;
+    } else {
+        setCommentSuccess(contactEmail);
+        validated = true;
+    }
+
+    if (contactMessage.value === '') {
+        setCommentError(contactMessage, 'A message is required');
+        validated = false;
+    } else if (contactMessage.value.length < 8) {
+        setCommentError(contactMessage, 'Message must be at least 8 characters long.');
+        validated = false;
+    } else {
+        setCommentSuccess(contactMessage);
+        validated = true;
+    }
+};
+
+
+
+
+
 /*
 
 VALIDATION OF LOGIN FORM
-
-
 const login_form = document.getElementById('login-form');
 const login_email = document.getElementById('login-email');
 const login_password = document.getElementById('login-password');

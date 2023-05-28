@@ -28,7 +28,7 @@ public class ContactsController : Controller
         {
             if (await _messageService.RegisterMessageAsync(viewModel))
             {
-                return RedirectToAction("Index", "Contact");
+                return RedirectToAction("Index", "Contacts");
             }
             else
             {

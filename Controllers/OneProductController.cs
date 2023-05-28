@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Santa_Final_ASP.ViewModels;
 using Santa_Final_ASP.Services;
 
 namespace Santa_Final_ASP.Controllers;
 
-public class ProductController : Controller
+public class OneProductController : Controller
 {
     private readonly ProductService _productService;
 
-    public ProductController(ProductService productService)
+    public OneProductController(ProductService productService)
     {
         _productService = productService;
     }
