@@ -11,6 +11,8 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("merketo")));
+builder.Services.AddDbContext<MessageContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("merketo")));
+
 
 
 builder.Services.AddScoped<SeedService>();

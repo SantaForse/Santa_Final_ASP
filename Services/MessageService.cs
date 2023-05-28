@@ -16,6 +16,7 @@ public class MessageService
         _messageContext = messageContext;
     }
 
+
     //Saves a message and their info
     public async Task<bool> RegisterMessageAsync(ContactFormViewModel viewModel)
     {

@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Santa_Final_ASP.ViewModels;
 using Santa_Final_ASP.Services;
-using Microsoft.AspNetCore.Authentication;
 
 namespace Santa_Final_ASP.Controllers;
 
-public class SignupController : Controller
+public class RegisterController : Controller
 {
-    private readonly Services.AuthenticationService _verify;
+    private readonly AuthenticationService _authenticationService;
 
-    public SignupController(Services.AuthenticationService verify)
+    public RegisterController(AuthenticationService authenticationService)
     {
-        _verify = verify;
+        _authenticationService = authenticationService;
     }
+
 
     [HttpGet]
     public IActionResult Index()
@@ -27,13 +27,13 @@ public class SignupController : Controller
 
         if (ModelState.IsValid)
         {
-            if (await _verify.UserAlreadyExistsAsync(x => x.Email == viewModel.Email))
+            if (await _authenticationService.UserAlreadyExistsAsync(x => x.Email == viewModel.Email))
             {
                 ModelState.AddModelError("", "A user with this email already exists.");
                 return View(viewModel);
             }
 
-            if (await _verify.RegisterUserAsync(viewModel))
+            if (await _authenticationService.RegisterUserAsync(viewModel))
             {
                 return RedirectToAction("index", "login");
             }
