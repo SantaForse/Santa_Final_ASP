@@ -4,16 +4,12 @@
     <div class="container-fluid">
         <h1 class="collection-title">Top selling products in this week</h1>
         <div class="collection-grid">
-
-            @*Stops the foreach loop at 6 products*@
             @{
                 var counter = 0;
             }
 
-            @*Loops out a number of products from list*@
             @foreach (var product in Model.Products)
             {
-                @*Filters products to tag "best"*@
                 if (product.ProductTag == "Top")
                 {
                     counter++;
@@ -44,15 +40,12 @@
         </div>
         <div class="collection-flex">
 
-            @*Stops the foreach loop at 3 products*@
             @{
                 var counter2 = 0;
             }
 
-            @*Loops out a number of products from list*@
             @foreach (var product in Model.Products)
             {
-                @*Filters products to tag "best"*@
                 if (product.ProductTag == "Featured")
                 {
                     counter2++;

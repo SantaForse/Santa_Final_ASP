@@ -24,8 +24,6 @@ builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<MessageService>();
 builder.Services.AddScoped<ProductService>();
 
-//AddClaimsPrincipalFactory<CustomClaimsPrincipleFactory>();
-//??????builder.Services.AddScoped<CustomClaimsPrincipleFactory>();
 
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
@@ -36,12 +34,6 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
 
 }).AddEntityFrameworkStores<IdentityContext>();
 
-/*builder.Services.ConfigureApplicationCookie(x =>
-{
-    x.LoginPath = "/login";
-    x.LogoutPath = "/";
-    x.AccessDeniedPath = "/denied";
-});*/
 
 var app = builder.Build();
 app.UseHsts();

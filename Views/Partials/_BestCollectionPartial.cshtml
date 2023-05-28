@@ -19,15 +19,12 @@
         </ul>
         <div class="collection-grid">
 
-            @*Stops the foreach loop at 8 products*@
             @{
                 var counter = 0;
             }
 
-            @*Loops out a number of products from list*@
             @foreach (var product in Model.Products)
             {
-                @*Filters products to tag "best"*@
                 if (product.ProductTag == "Best")
                 {
                     counter++;
@@ -37,7 +34,6 @@
                     }
                     else
                     {
-                        //<a href="@Url.Action("Product", "YourControllerName", new { id = product.Id })">@product.Name</a>
                         <a href="@Url.Action("Index", "OneProduct", new {id = product.Id})" class="collection-item">
                             <img style="height:295px;" src="@product.ImgUrl" alt="@product.Name">
                             <div class="body">
