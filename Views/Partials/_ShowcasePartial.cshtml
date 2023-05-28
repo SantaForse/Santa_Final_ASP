@@ -12,7 +12,7 @@
         </div>
         <div class="content-image">
             @{
-                if (Model.Products.Any())
+                if (Model.Products.Where(x => x.ProductTag == "Featured").Any())
                 {
                     <img src="@Model.Products.Where(x => x.ProductTag == "Featured").First().ImgUrl" alt="@Model.Products.Where(x => x.ProductTag == "Featured").First().Name">
 
